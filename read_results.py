@@ -54,4 +54,4 @@ def find_optimal(csv_file):
                   f"l2a={r['l2_assoc']} blk={r['block_size']}")
 
 if __name__ == "__main__":
-    find_optimal("sweep_results.csv")
+    find_optimal("sweep_results_lbm.csv")

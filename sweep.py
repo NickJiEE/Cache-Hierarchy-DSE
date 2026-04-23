@@ -6,39 +6,75 @@ GEM5_DIR = os.path.expanduser("~/gem5")
 SPEC_DIR = os.path.expanduser("~/Downloads/Project1_SPEC-master")
 
 benchmarks = {
-    "401.bzip2": {
-        "bin": f"{SPEC_DIR}/401.bzip2/src/benchmark",
-        "arg": f"{SPEC_DIR}/401.bzip2/data/input.program",
-    },
-    "429.mcf": {
-        "bin": f"{SPEC_DIR}/429.mcf/src/benchmark",
-        "arg": f"{SPEC_DIR}/429.mcf/data/inp.in",
-    },
-    "456.hmmer": {
-        "bin": f"{SPEC_DIR}/456.hmmer/src/benchmark",
-        "arg": f"{SPEC_DIR}/456.hmmer/data/bombesin.hmm.new",
-    },
-    "458.sjeng": {
-        "bin": f"{SPEC_DIR}/458.sjeng/src/benchmark",
-        "arg": f"{SPEC_DIR}/458.sjeng/data/test.txt",
-    },
+    #"401.bzip2": {
+    #    "bin": f"{SPEC_DIR}/401.bzip2/src/benchmark",
+    #    "arg": f"{SPEC_DIR}/401.bzip2/data/input.program",
+    #},
+    #"429.mcf": {
+    #    "bin": f"{SPEC_DIR}/429.mcf/src/benchmark",
+    #    "arg": f"{SPEC_DIR}/429.mcf/data/inp.in",
+    #},
+    #"456.hmmer": {
+    #    "bin": f"{SPEC_DIR}/456.hmmer/src/benchmark",
+    #    "arg": f"{SPEC_DIR}/456.hmmer/data/bombesin.hmm.new",
+    #},
+    #"458.sjeng": {
+    #    "bin": f"{SPEC_DIR}/458.sjeng/src/benchmark",
+    #    "arg": f"{SPEC_DIR}/458.sjeng/data/test.txt",
+    #},
     "470.lbm": {
         "bin": f"{SPEC_DIR}/470.lbm/src/benchmark",
         "arg": f"20 reference.dat 0 1 {SPEC_DIR}/470.lbm/data/100_100_130_cf_a.of",
-    },
+    }
 }
 
 # Parameter sweep space
-l1d_sizes  = ["64kB", "128kB", "256kB", "512kB"]
-l1i_sizes  = ["32kB", "64kB", "128kB", "256kB"]
-l2_sizes   = ["1MB", "2MB", "4MB"]
+#l1d_sizes  = ["64kB", "128kB", "256kB", "512kB"]
+#l1i_sizes  = ["32kB", "64kB", "128kB", "256kB"]
+#l2_sizes   = ["1MB", "2MB", "4MB"]
 #l1_assocs  = [1, 2, 4, 8]
 #l2_assocs  = [1, 2, 4, 8]
 #block_sizes = [32, 64, 128]
 
-l1_assocs  = [2]
-l2_assocs  = [1]
-block_sizes = [64]
+# Config for 458.sjeng
+#l1d_sizes  = ["256kB"]
+#l1i_sizes  = ["256kB"]
+#l2_sizes   = ["4MB"]
+#l1_assocs  = [1, 2, 4, 8]
+#l2_assocs  = [1, 2, 4, 8]
+#block_sizes = [32, 64, 128]
+
+# Config for 401.bzip2
+#l1d_sizes  = ["256kB"]
+#l1i_sizes  = ["256kB"]
+#l2_sizes   = ["4MB"]
+#l1_assocs  = [1, 2, 4, 8]
+#l2_assocs  = [1, 2, 4, 8]
+#block_sizes = [32, 64, 128]
+
+# Most optimize config for 429.mcf
+#l1d_sizes  = ["256kB"]
+#l1i_sizes  = ["32kB"]
+#l2_sizes   = ["4MB"]
+#l1_assocs  = [1, 2, 4, 8]
+#l2_assocs  = [1, 2, 4, 8]
+#block_sizes = [32, 64, 128]
+
+# Most optimize config for 456.hmmer
+#l1d_sizes  = ["256kB"]
+#l1i_sizes  = ["32kB"]
+#l2_sizes   = ["1MB"]
+#l1_assocs  = [1, 2, 4, 8]
+#l2_assocs  = [1, 2, 4, 8]
+#block_sizes = [32, 64, 128]
+
+# Most optimize config for 470.lbm
+l1d_sizes  = ["256kB"]
+l1i_sizes  = ["32kB"]
+l2_sizes   = ["4MB"]
+l1_assocs  = [1, 2, 4, 8]
+l2_assocs  = [1, 2, 4, 8]
+block_sizes = [32, 64, 128]
 
 MAX_INST = 500000000
 
@@ -107,9 +143,9 @@ for bench_name, bench in benchmarks.items():
 
 # Write CSV
 import csv
-with open("sweep_results.csv", "w", newline="") as f:
+with open("sweep_results_lbm.csv", "w", newline="") as f:
     writer = csv.DictWriter(f, fieldnames=results[0].keys())
     writer.writeheader()
     writer.writerows(results)
 
-print("Results saved to sweep_results.csv")
+print("Results saved to sweep_results_lbm.csv")
