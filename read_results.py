@@ -37,7 +37,7 @@ def find_optimal(csv_file):
         print(f"  L2 misses:    {best['L2_misses']}")
         print(f"  CPI vs baseline: {best['CPI']:.3f} (baseline from Part 2)")
 
-    # Also show top 3 per benchmark for comparison
+    # Top 3 per benchmark
     print("\n" + "=" * 70)
     print("TOP 3 CONFIGS PER BENCHMARK")
     print("=" * 70)

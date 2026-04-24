@@ -36,7 +36,7 @@ benchmarks = {
 #l2_assocs  = [1, 2, 4, 8]
 #block_sizes = [32, 64, 128]
 
-# Config for 458.sjeng
+# Config for 458.sjeng (with optimized caches size)
 #l1d_sizes  = ["256kB"]
 #l1i_sizes  = ["256kB"]
 #l2_sizes   = ["4MB"]
@@ -52,7 +52,7 @@ benchmarks = {
 #l2_assocs  = [1, 2, 4, 8]
 #block_sizes = [32, 64, 128]
 
-# Most optimize config for 429.mcf
+# Config for 429.mcf
 #l1d_sizes  = ["256kB"]
 #l1i_sizes  = ["32kB"]
 #l2_sizes   = ["4MB"]
@@ -60,7 +60,7 @@ benchmarks = {
 #l2_assocs  = [1, 2, 4, 8]
 #block_sizes = [32, 64, 128]
 
-# Most optimize config for 456.hmmer
+# Config for 456.hmmer
 #l1d_sizes  = ["256kB"]
 #l1i_sizes  = ["32kB"]
 #l2_sizes   = ["1MB"]
@@ -68,7 +68,7 @@ benchmarks = {
 #l2_assocs  = [1, 2, 4, 8]
 #block_sizes = [32, 64, 128]
 
-# Most optimize config for 470.lbm
+# Config for 470.lbm
 l1d_sizes  = ["256kB"]
 l1i_sizes  = ["32kB"]
 l2_sizes   = ["4MB"]
